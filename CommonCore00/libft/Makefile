@@ -6,7 +6,7 @@
 #    By: xrodrigu <xrodrigu@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/16 20:52:25 by xrodrigu          #+#    #+#              #
-#    Updated: 2022/10/24 02:34:31 by xrodrigu         ###   ########.fr        #
+#    Updated: 2022/11/04 22:04:03 by xrodrigu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,9 +40,9 @@ SRC = ft_bzero.c		ft_isalpha.c	ft_isprint.c 	ft_memcpy.c \
 	  ft_striteri.c		ft_strmapi.c 	ft_itoa.c 		ft_strjoin.c \
 	  ft_strtrim.c		ft_split.c
 
-SRC_BONUS = ft_lstnew.c			ft_lstadd_front.c	ft_lstsize.c \
-			ft_lstlast.c		ft_lstadd_back.c 	ft_lstdelone.c \
-			ft_lstclear.c		ft_lstiter.c		ft_lstmap.c
+SRC_BONUS = ft_lstnew_bonus.c	ft_lstadd_front_bonus.c	ft_lstsize_bonus.c \
+			ft_lstlast_bonus.c	ft_lstadd_back_bonus.c 	ft_lstdelone_bonus.c \
+			ft_lstclear_bonus.c	ft_lstiter_bonus.c		ft_lstmap_bonus.c
 
 
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
@@ -75,7 +75,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(MAKEFILE)
 	@$(CC) $(CFLAGS) $(DEP_FLAGS) $(INCLUDE) -c $< -o $@
 	@mv $(patsubst %.o, %.d, $@) $(DEP_DIR)/
 
-all: 
+all:
 	@$(MAKE) $(NAME)
 
 
@@ -92,7 +92,7 @@ $(BONUS): $(OBJ) $(OBJ_BONUS)
 	@echo "$(G)[LIBFT]->Library with bonus created.$(N)"
 
 
-bonus: 
+bonus:
 	@$(MAKE) $(BONUS)
 
 
@@ -102,14 +102,14 @@ clean:
 	@echo "$(G)[LIBFT]->Dependencies directory $(R)deleted$(N) $(G)successfully.$(N)"
 
 
-fclean: 
+fclean:
 	@$(MAKE) clean
 	@$(RM) $(NAME) $(BONUS)
 	@echo "$(G)[LIBFT]->All files cleaned!$(N)"
 
 
-re: 
-	@$(MAKE) fclean 
+re:
+	@$(MAKE) fclean
 	@$(MAKE) all
 
 
