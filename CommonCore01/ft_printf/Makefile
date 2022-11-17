@@ -6,7 +6,7 @@
 #    By: xrodrigu <xrodrigu@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/17 19:40:11 by xrodrigu          #+#    #+#              #
-#    Updated: 2022/11/16 16:21:07 by xrodrigu         ###   ########.fr        #
+#    Updated: 2022/11/17 18:41:14 by xrodrigu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,11 +18,17 @@ BONUS = .bonus
 
 LIBFT_DIR = libft
 
+BNS_DIR = bonus
+
 SRC_DIR = src
 
 UTL_DIR = utils
 
-BNS_DIR = bonus
+AUX_DIR = aux
+
+FT_PRINTF_DIR = ft_printf
+
+FT_WRITE_DIR = ft_write
 
 OBJ_DIR = .obj
 
@@ -42,37 +48,41 @@ CYAN =	 	\033[0;36m
 WHITE = 	\033[0;37m
 
 
-SRC = 	ft_printf.c
+SRC = 		ft_printf.c
 
-UTL = 	ft_printf_int.c			ft_printf_str.c \
-	  	ft_printf_uint_base.c	ft_printf_void_ptr_hex.c
+UTL = 		ft_printf_int.c			ft_printf_str.c \
+	  		ft_printf_uint_base.c	ft_printf_void_ptr_hex.c
 
-BNS_SRC = ft_printf_bonus.c
+BNS_SRC = 	ft_printf_bonus.c
 
-BNS_UTL = ft_arg_data_bonus.c \
-		  ft_check_format_bonus.c \
-		  ft_check_valid_format_bonus.c \
-		  ft_fetch_arg_data_bonus.c \
-		  ft_precision_utils_bonus.c \
-		  ft_printf_arg_bonus.c \
-		  ft_printf_char_bonus.c \
-		  ft_printf_int_bonus.c \
-		  ft_printf_str_bonus.c \
-		  ft_printf_unsigned_int_bonus.c \
-		  ft_printf_unsigned_int_hex_bonus.c \
-		  ft_printf_void_ptr_hex_bonus.c \
-		  ft_write_int_bonus.c \
-		  ft_write_padding_bonus.c \
-		  ft_write_str_bonus.c \
-		  ft_write_uint_base_bonus.c \
-		  ft_write_void_ptr_hex_bonus.c
+AUX_BNS_UTL = 		ft_arg_data_bonus.c \
+		  			ft_check_format_bonus.c \
+		  			ft_check_valid_format_bonus.c \
+		  			ft_fetch_arg_data_bonus.c \
+		  			ft_precision_utils_bonus.c \
+
+FT_PRINTF_BNS_UTL = ft_printf_arg_bonus.c \
+		  			ft_printf_char_bonus.c \
+		  			ft_printf_int_bonus.c \
+		 			ft_printf_str_bonus.c \
+		 			ft_printf_unsigned_int_bonus.c \
+		  			ft_printf_unsigned_int_hex_bonus.c \
+		  			ft_printf_void_ptr_hex_bonus.c \
+
+FT_WRITE_BNS_UTL = 	ft_write_int_bonus.c \
+					ft_write_padding_bonus.c \
+		  			ft_write_str_bonus.c \
+		  			ft_write_uint_base_bonus.c \
+		  			ft_write_void_ptr_hex_bonus.c
 
 
 SRCS += $(addprefix $(SRC_DIR)/, $(SRC))
 SRCS += $(addprefix $(UTL_DIR)/, $(UTL))
 
 BNS_SRCS += $(addprefix $(BNS_DIR)/$(SRC_DIR)/, $(BNS_SRC))
-BNS_SRCS += $(addprefix $(BNS_DIR)/$(UTL_DIR)/, $(BNS_UTL))
+BNS_SRCS += $(addprefix $(BNS_DIR)/$(UTL_DIR)/$(AUX_DIR)/, $(AUX_BNS_UTL))
+BNS_SRCS += $(addprefix $(BNS_DIR)/$(UTL_DIR)/$(FT_PRINTF_DIR)/, $(FT_PRINTF_BNS_UTL))
+BNS_SRCS += $(addprefix $(BNS_DIR)/$(UTL_DIR)/$(FT_WRITE_DIR)/, $(FT_WRITE_BNS_UTL))
 
 OBJ_SRCS = $(addprefix $(OBJ_DIR)/, $(addsuffix .o, $(basename $(SRCS))))
 
