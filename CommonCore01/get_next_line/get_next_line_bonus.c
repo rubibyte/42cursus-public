@@ -6,7 +6,7 @@
 /*   By: xrodrigu <xrodrigu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:09:25 by xrodrigu          #+#    #+#             */
-/*   Updated: 2022/11/29 18:07:00 by xrodrigu         ###   ########.fr       */
+/*   Updated: 2022/12/02 13:31:00 by xrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <limits.h>
+#include <stdio.h>
 
 char	*ft_strchr(const char *s, int c);
 size_t	ft_strlen(char *str);
